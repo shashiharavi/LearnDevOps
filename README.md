@@ -1,1 +1,1 @@
-This is my new devops repositor
+This is my new devops repository
