@@ -5,11 +5,9 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out from SCM'
-	        checkout changelog: false, poll: false,
-		scm: [$class: 'GitSCM',
-		branches: [[name: '*/master']],
-		extensions: [], userRemoteConfigs: [[credentialsId: 'fe325150-444b-46da-a418-01749036c55b',
-		url: 'https://github.com/shreedharjolad/javasamplejob.git']]]	
+	        checkout([$class: 'GitSCM', branches: [[name: '*/javasample']], 
+		extensions: [], userRemoteConfigs: [[credentialsId: 'e55373a1-c730-430d-8e51-0601ab7b0007',
+		url: 'https://github.com/shashiharavi/LearnDevOps.git']]])	
             }
         }
         stage('BUILD + UT') {
@@ -19,11 +17,6 @@ pipeline {
             }
 
         }
-        stage('deploy') {
-            steps {
-                echo 'deploy....'
-		sh 'mvn deploy'
-            }
-        }
+        
     }
     }
