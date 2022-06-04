@@ -1,5 +1,6 @@
 public class HelloWorld {
-
+Public static void main(string args[])
+{
 	public String getMessage(boolean bigger) {
 		if (bigger) {
 			system.out.println("Hello World")
@@ -10,4 +11,5 @@ public class HelloWorld {
 		}
 	}
 
+}
 }
