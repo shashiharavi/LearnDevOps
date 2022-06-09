@@ -1,0 +1,11 @@
+- name: Ansible Copy Examplocalhostle Local to Remote
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: copying file with playbook
+      become: true
+      copy:
+        src: /home/ubuntu/abc.txt
+        dest: /home/ubuntu/shashidhar/
+        owner: ubuntu
+        mode: 0644
