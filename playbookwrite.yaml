@@ -1,0 +1,17 @@
+- name: Ansible add text to an existing file
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: write text to a file
+      become: true
+      copy:
+        dest: /home/ubuntu/shashidhar/abc.txt
+        content: |
+                Write success last test
+        register: display_file_content
+
+    - name: Debug display_file_content
+      debug:
+        var: display_file_content
+        verbosity: 2
