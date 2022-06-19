@@ -13,7 +13,7 @@ pipeline {
         stage('BUILD DOCKER') {
             steps {
                 echo 'Building DOCKERFILE'
-		sh 'docker image build -t testjen1:1.1 .'
+		sh 'docker image build -t testjen1 .'
             }
 
         }
