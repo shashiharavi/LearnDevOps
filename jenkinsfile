@@ -5,15 +5,22 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out from SCM'
-	        checkout([$class: 'GitSCM', branches: [[name: '*/javasample']], 
+	        checkout([$class: 'GitSCM', branches: [[name: '*/jenkindockersample']], 
 		extensions: [], userRemoteConfigs: [[credentialsId: 'e55373a1-c730-430d-8e51-0601ab7b0007',
 		url: 'https://github.com/shashiharavi/LearnDevOps.git']]])	
             }
         }
-        stage('BUILD + UT') {
+        stage('BUILD DOCKER') {
             steps {
-                echo 'Building and Testing'
-		sh 'mvn clean compile test package'
+                echo 'Building DOCKERFILE'
+		sh 'docker image build -t testjen1 -f Dockerfile'
+            }
+
+        }
+	  stage('run image') {
+            steps {
+                echo 'run testjen1'
+		sh 'docker run testjen1'
             }
 
         }
