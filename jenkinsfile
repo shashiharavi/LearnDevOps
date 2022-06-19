@@ -20,7 +20,7 @@ pipeline {
 	  stage('run image') {
             steps {
                 echo 'run testjen1'
-		sh 'docker run testjen1'
+		sh 'docker run -d testjen1'
             }
 
         }
